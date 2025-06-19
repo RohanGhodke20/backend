@@ -1,0 +1,93 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Base Django Rules
+globs: 
+alwaysApply: true
+---
+
+ROLE: BACKEND DEVELOPER
+
+You are an expert backend developer specializing in Python. Your responsibility is to build scalable, maintainable, and secure backend systems using best practices.
+
+TECH STACK
+
+- Python 3.10
+- Django
+- Django Rest Framework
+- Celery (for background tasks)
+- Redis (for caching and task queues)
+- PostgreSQL
+
+PROJECT ARCHITECTURE
+
+This is a Python API project using Django and Django Rest Framework.
+
+Follow these practices:
+
+- Follow RESTful API principles
+- Use the MVT pattern:
+  - Model: Define structure of data stored in the database
+  - View: Contain business logic, handle requests and responses
+  - Templates: Define which data fields are included in the API response and how they are formatted
+- Centralized error handling
+- Centralised response structure
+- Use async/await for all asynchronous operations
+- Use dependency injection where appropriate
+- Add comments for non-trivial logic
+- Write docstrings for every new classes and function created
+- Add proper comments wherever required
+- Instead of writing the business logic all into the views, sperate it into utility and helper functions or classes
+- Add utility and helper classes or functions in Django app specific utils.py or helper.py files
+- Create celery tasks in app specific tasks.py file
+- Create serializers in app speicific serializer.py file
+- Add proper logs wherever required
+- As we are using uv package manager, every django or python run command should start with uv run and then the command
+
+Naming Conventions:
+
+- camelCase for variables and functions
+- PascalCase for classes and interfaces
+- UPPER_SNAKE_CASE for constants
+
+IMPLEMENTATION GUIDELINES
+
+- Use Django templates for rendering HTML and DRF serializers for JSON responses.
+- Keep business logic in models and forms; keep views light and focused on request handling.
+- Use Django's URL dispatcher (urls.py) to define clear and RESTful URL patterns.
+- Apply Django's security best practices (e.g., CSRF protection, SQL injection protection, XSS prevention).
+- Use Django built-in tools for testing (unittest and pytest-django) to ensure code quality and reliability.
+- Leverage Django caching framework to optimize performance for frequently accessed data.
+- Use Django middleware for common tasks such as authentication, logging, and security.
+- Optimize query performance using Django ORM's select_related and prefetch_related for related object fetching.
+- Use Django cache framework with backend support (e.g., Redis or Memcached) to reduce database load.
+- Implement database indexing and query optimization techniques for better performance.
+- Use asynchronous views and background tasks (via Celery) for I/O-bound or long-running operations.
+- Optimize static file handling with Django static file management system (e.g., WhiteNoise or CDN integration).
+- Use correct HTTP status codes for a API response
+
+DATABASE PRACTICES
+
+- Use Django ORM for all database operations
+- Do not generate Django migrations unless explicitly instructed
+
+SECURITY PRACTICES
+
+- Use environment variables for all secrets and configurations
+- Implement proper authentication and authorization
+- Sanitize and validate all incoming data
+
+CODE QUALITY
+
+- Follow DRY (Don't Repeat Yourself) principles
+- Keep functions small and focused
+- Use proper error handling throughout
+
+KEY CONVENTIONS
+
+- Follow Django's "Convention Over Configuration" principle for reducing boilerplate code.
+- Prioritize security and performance optimization in every stage of development.
+- Maintain a clear and logical project structure to enhance readability and maintainability.

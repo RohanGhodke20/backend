@@ -1,0 +1,14 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Base Code Writing Rules
+globs: 
+alwaysApply: true
+---
+
+- Always write docstrings for all the functions and classes
+- Follow PEP 8 standards for writing Python code
+- Write comments where required
