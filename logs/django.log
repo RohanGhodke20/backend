@@ -1,0 +1,111 @@
+[2025-06-19 12:16:05,395] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-19 12:17:32,000] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/get_fit/backend/core/views.py changed, reloading.
+[2025-06-19 12:17:32,254] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-19 12:17:33,414] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/get_fit/backend/core/views.py changed, reloading.
+[2025-06-19 12:17:33,655] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-19 12:17:37,864] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/get_fit/backend/core/settings.py changed, reloading.
+[2025-06-19 12:17:38,157] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-19 12:22:11,754] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/get_fit/backend/users/views.py changed, reloading.
+[2025-06-19 12:22:12,041] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-19 12:22:13,202] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/get_fit/backend/users/views.py changed, reloading.
+[2025-06-19 12:22:13,462] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-19 12:24:21,959] INFO core.views api_root:20 - API root accessed by user: AnonymousUser
+[2025-06-19 12:24:21,961] INFO django.server log_message:213 - "GET /api/v1/ HTTP/1.1" 200 165
+[2025-06-19 12:24:33,820] INFO core.views api_root:20 - API root accessed by user: AnonymousUser
+[2025-06-19 12:24:33,820] INFO django.server log_message:213 - "GET /api/v1/ HTTP/1.1" 200 165
+[2025-06-19 12:24:42,545] INFO core.views api_root:20 - API root accessed by user: AnonymousUser
+[2025-06-19 12:24:42,546] INFO django.server log_message:213 - "GET /api/v1/ HTTP/1.1" 200 165
+[2025-06-19 12:24:47,414] ERROR core.decorators wrapper:48 - Unexpected Exception in post: 'UserRegistrationView' object has no attribute 'method' | Args: (<users.views.UserRegistrationView object at 0x7938a7f3fe20>, <rest_framework.request.Request: POST '/api/v1/users/register/'>) | Kwargs: {}
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/get_fit/backend/core/decorators.py", line 35, in wrapper
+    return func(*args, **kwargs)
+  File "/home/aubergine/Workspace/get_fit/backend/core/decorators.py", line 86, in wrapper
+    method = request.method
+AttributeError: 'UserRegistrationView' object has no attribute 'method'
+[2025-06-19 12:24:47,415] ERROR django.server log_message:213 - "POST /api/v1/users/register/ HTTP/1.1" 500 109
+[2025-06-19 12:25:24,312] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-19 12:25:51,414] INFO core.views api_root:20 - API root accessed by user: AnonymousUser
+[2025-06-19 12:25:51,415] INFO django.server log_message:213 - "GET /api/v1/ HTTP/1.1" 200 165
+[2025-06-19 12:25:59,803] INFO core.views api_root:20 - API root accessed by user: AnonymousUser
+[2025-06-19 12:25:59,804] INFO django.server log_message:213 - "GET /api/v1/ HTTP/1.1" 200 165
+[2025-06-19 12:26:26,149] INFO core.views api_root:20 - API root accessed by user: AnonymousUser
+[2025-06-19 12:26:26,149] INFO django.server log_message:213 - "GET /api/v1/ HTTP/1.1" 200 165
+[2025-06-19 12:26:33,291] ERROR core.decorators wrapper:48 - Unexpected Exception in post: 'UserRegistrationView' object has no attribute 'method' | Args: (<users.views.UserRegistrationView object at 0x7938a7fdf790>, <rest_framework.request.Request: POST '/api/v1/users/register/'>) | Kwargs: {}
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/get_fit/backend/core/decorators.py", line 35, in wrapper
+    return func(*args, **kwargs)
+  File "/home/aubergine/Workspace/get_fit/backend/core/decorators.py", line 86, in wrapper
+    method = request.method
+AttributeError: 'UserRegistrationView' object has no attribute 'method'
+[2025-06-19 12:26:33,292] ERROR django.server log_message:213 - "POST /api/v1/users/register/ HTTP/1.1" 500 109
+[2025-06-19 12:26:53,964] ERROR core.decorators wrapper:48 - Unexpected Exception in post: 'UserRegistrationView' object has no attribute 'method' | Args: (<users.views.UserRegistrationView object at 0x7938a7fdc040>, <rest_framework.request.Request: POST '/api/v1/users/register/'>) | Kwargs: {}
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/get_fit/backend/core/decorators.py", line 35, in wrapper
+    return func(*args, **kwargs)
+  File "/home/aubergine/Workspace/get_fit/backend/core/decorators.py", line 86, in wrapper
+    method = request.method
+AttributeError: 'UserRegistrationView' object has no attribute 'method'
+[2025-06-19 12:26:53,965] ERROR django.server log_message:213 - "POST /api/v1/users/register/ HTTP/1.1" 500 109
+[2025-06-19 12:28:01,654] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/get_fit/backend/core/decorators.py changed, reloading.
+[2025-06-19 12:28:01,919] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-19 12:28:03,067] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/get_fit/backend/core/decorators.py changed, reloading.
+[2025-06-19 12:28:03,292] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-19 12:28:15,648] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/get_fit/backend/core/decorators.py changed, reloading.
+[2025-06-19 12:28:15,887] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-19 12:28:17,041] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/get_fit/backend/core/decorators.py changed, reloading.
+[2025-06-19 12:28:17,281] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-19 12:28:29,646] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/get_fit/backend/core/decorators.py changed, reloading.
+[2025-06-19 12:28:29,885] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-19 12:28:31,063] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/get_fit/backend/core/decorators.py changed, reloading.
+[2025-06-19 12:28:31,283] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-19 12:28:40,232] INFO core.decorators wrapper:97 - API Request: POST /api/v1/users/register/ | Anonymous | Query Params: {} | View: post
+[2025-06-19 12:28:40,232] WARNING core.decorators wrapper:149 - Validation Error: Missing required fields: email, password | View: post | User: AnonymousUser
+[2025-06-19 12:28:40,233] INFO core.decorators wrapper:107 - API Response: 400 | POST /api/v1/users/register/ | View: post
+[2025-06-19 12:28:40,233] WARNING django.server log_message:213 - "POST /api/v1/users/register/ HTTP/1.1" 400 91
+[2025-06-19 12:28:47,544] INFO core.decorators wrapper:97 - API Request: POST /api/v1/users/register/ | Anonymous | Query Params: {} | View: post
+[2025-06-19 12:28:47,578] ERROR core.decorators wrapper:48 - Unexpected Exception in post: {'email': [ErrorDetail(string='user with this email already exists.', code='unique')], 'confirm_password': [ErrorDetail(string='This field is required.', code='required')]} | Args: (<users.views.UserRegistrationView object at 0x7bbf53f884f0>, <rest_framework.request.Request: POST '/api/v1/users/register/'>) | Kwargs: {}
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/get_fit/backend/core/decorators.py", line 35, in wrapper
+    return func(*args, **kwargs)
+  File "/home/aubergine/Workspace/get_fit/backend/core/decorators.py", line 103, in wrapper
+    response = func(*args, **kwargs)
+  File "/home/aubergine/Workspace/get_fit/backend/core/decorators.py", line 158, in wrapper
+    return func(*args, **kwargs)
+  File "/home/aubergine/Workspace/get_fit/backend/users/views.py", line 50, in post
+    raise BadRequestException(detail=serializer.errors)
+core.exceptions.BadRequestException: {'email': [ErrorDetail(string='user with this email already exists.', code='unique')], 'confirm_password': [ErrorDetail(string='This field is required.', code='required')]}
+[2025-06-19 12:28:47,580] ERROR django.server log_message:213 - "POST /api/v1/users/register/ HTTP/1.1" 500 109
+[2025-06-19 12:29:03,561] INFO core.decorators wrapper:97 - API Request: POST /api/v1/users/register/ | Anonymous | Query Params: {} | View: post
+[2025-06-19 12:29:03,805] INFO core.decorators wrapper:107 - API Response: 201 | POST /api/v1/users/register/ | View: post
+[2025-06-19 12:29:03,805] INFO django.server log_message:213 - "POST /api/v1/users/register/ HTTP/1.1" 201 104
+[2025-06-19 12:29:10,575] INFO core.decorators wrapper:97 - API Request: POST /api/v1/users/login/ | Anonymous | Query Params: {} | View: post
+[2025-06-19 12:29:10,575] WARNING core.decorators wrapper:149 - Validation Error: Missing required fields: email, password | View: post | User: AnonymousUser
+[2025-06-19 12:29:10,575] INFO core.decorators wrapper:107 - API Response: 400 | POST /api/v1/users/login/ | View: post
+[2025-06-19 12:29:10,576] WARNING django.server log_message:213 - "POST /api/v1/users/login/ HTTP/1.1" 400 91
+[2025-06-19 12:30:34,937] INFO core.decorators wrapper:97 - API Request: POST /api/v1/users/login/ | Anonymous | Query Params: {} | View: post
+[2025-06-19 12:30:35,176] INFO core.decorators wrapper:107 - API Response: 200 | POST /api/v1/users/login/ | View: post
+[2025-06-19 12:30:35,176] INFO django.server log_message:213 - "POST /api/v1/users/login/ HTTP/1.1" 200 621
+[2025-06-19 12:30:42,899] INFO core.decorators wrapper:97 - API Request: POST /api/v1/users/login/ | Anonymous | Query Params: {} | View: post
+[2025-06-19 12:30:43,129] ERROR core.decorators wrapper:48 - Unexpected Exception in post: Invalid email or password | Args: (<users.views.UserLoginView object at 0x7bbf53b2a140>, <rest_framework.request.Request: POST '/api/v1/users/login/'>) | Kwargs: {}
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/get_fit/backend/core/decorators.py", line 35, in wrapper
+    return func(*args, **kwargs)
+  File "/home/aubergine/Workspace/get_fit/backend/core/decorators.py", line 103, in wrapper
+    response = func(*args, **kwargs)
+  File "/home/aubergine/Workspace/get_fit/backend/core/decorators.py", line 158, in wrapper
+    return func(*args, **kwargs)
+  File "/home/aubergine/Workspace/get_fit/backend/users/views.py", line 71, in post
+    raise UnauthorizedException(detail="Invalid email or password")
+core.exceptions.UnauthorizedException: Invalid email or password
+[2025-06-19 12:30:43,129] ERROR django.server log_message:213 - "POST /api/v1/users/login/ HTTP/1.1" 500 109
+[2025-06-19 12:31:04,104] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/get_fit/backend/core/decorators.py changed, reloading.
+[2025-06-19 12:31:04,366] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-19 12:31:24,399] INFO core.decorators wrapper:98 - API Request: POST /api/v1/users/login/ | Anonymous | Query Params: {} | View: post
+[2025-06-19 12:31:24,637] WARNING core.decorators wrapper:39 - API Exception: 401 - Invalid email or password | View: post | Args: (<users.views.UserLoginView object at 0x78d94525e8c0>, <rest_framework.request.Request: POST '/api/v1/users/login/'>) | Kwargs: {}
+[2025-06-19 12:31:24,638] WARNING django.server log_message:213 - "POST /api/v1/users/login/ HTTP/1.1" 401 65
+[2025-06-19 12:33:07,447] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/get_fit/backend/core/utils.py changed, reloading.
+[2025-06-19 12:33:07,705] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-19 12:33:51,396] INFO core.decorators wrapper:98 - API Request: POST /api/v1/users/login/ | Anonymous | Query Params: {} | View: post
+[2025-06-19 12:33:51,396] WARNING core.decorators wrapper:150 - Validation Error: Missing required fields: email, password | View: post | User: AnonymousUser
+[2025-06-19 12:33:51,396] INFO core.decorators wrapper:108 - API Response: 400 | POST /api/v1/users/login/ | View: post
+[2025-06-19 12:33:51,397] WARNING django.server log_message:213 - "POST /api/v1/users/login/ HTTP/1.1" 400 102

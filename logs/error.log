@@ -1,0 +1,5 @@
+[2025-06-19 12:24:47,415] ERROR django.request log_response:253 - Internal Server Error: /api/v1/users/register/
+[2025-06-19 12:26:33,292] ERROR django.request log_response:253 - Internal Server Error: /api/v1/users/register/
+[2025-06-19 12:26:53,964] ERROR django.request log_response:253 - Internal Server Error: /api/v1/users/register/
+[2025-06-19 12:28:47,579] ERROR django.request log_response:253 - Internal Server Error: /api/v1/users/register/
+[2025-06-19 12:30:43,129] ERROR django.request log_response:253 - Internal Server Error: /api/v1/users/login/
