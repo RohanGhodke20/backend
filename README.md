@@ -1,4 +1,4 @@
-# Get Fit - Django REST API
+# Boilerplate - Django REST API
 
 A scalable and secure RESTful API built with Django and Django REST Framework for a multi-user property listing platform.
 
@@ -438,11 +438,3 @@ CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000"]
 4. Add tests for new functionality
 5. Run the test suite
 6. Submit a pull request
-
-## 📝 License
-
-This project is licensed under the MIT License.
-
-## 🆘 Support
-
-For support and questions, please contact the development team or create an issue in the repository. 
