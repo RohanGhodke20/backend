@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 from django.db import models
 from django.utils import timezone
 from django.core.validators import RegexValidator
+from typing import Optional
 
 # Create your models here.
 
@@ -10,7 +11,7 @@ class UserManager(BaseUserManager):
     Custom manager for User model where email is the unique identifier
     for authentication instead of usernames.
     """
-    def create_user(self, email, password=None, **extra_fields):
+    def create_user(self, email: str, password: Optional[str] = None, **extra_fields) -> 'User':
         """
         Create and return a user with an email and password.
         """
@@ -22,7 +23,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, password=None, **extra_fields):
+    def create_superuser(self, email: str, password: Optional[str] = None, **extra_fields) -> 'User':
         """
         Create and return a superuser with given email and password.
         """
@@ -37,13 +38,12 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     """
     Custom User model that uses email as the unique identifier
-    instead of username.
+    instead of username for the fitness class booking platform.
     """
     class UserType(models.TextChoices):
-        AGENT = 'agent', 'Agent'
-        INVESTOR = 'investor', 'Investor'
-        ADMIN = 'admin', 'Admin'
         USER = 'user', 'User'
+        INSTRUCTOR = 'instructor', 'Gym Instructor'
+        ADMIN = 'admin', 'Admin'
 
     email = models.EmailField(unique=True, db_index=True)
     first_name = models.CharField(max_length=30, blank=True)
@@ -54,7 +54,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     )
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True)
     user_type = models.CharField(
-        max_length=10,
+        max_length=12,
         choices=UserType.choices,
         default=UserType.USER
     )
@@ -65,11 +65,15 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_login = models.DateTimeField(null=True, blank=True)
     profile_picture = models.URLField(blank=True, null=True)
     
-    # Additional fields for property platform
-    company_name = models.CharField(max_length=100, blank=True)
-    license_number = models.CharField(max_length=50, blank=True)
-    bio = models.TextField(blank=True)
-    website = models.URLField(blank=True)
+    # Fitness platform specific fields
+    bio = models.TextField(blank=True, help_text="User's bio or instructor's description")
+    company_name = models.CharField(max_length=100, blank=True, help_text="Gym or company name for instructors")
+    date_of_birth = models.DateField(null=True, blank=True)
+    emergency_contact = models.CharField(max_length=17, blank=True, validators=[phone_regex])
+    emergency_contact_name = models.CharField(max_length=100, blank=True)
+    fitness_goals = models.TextField(blank=True, help_text="User's fitness goals")
+    medical_conditions = models.TextField(blank=True, help_text="Any medical conditions to be aware of")
+    preferred_class_types = models.JSONField(default=list, blank=True, help_text="List of preferred class types")
 
     objects = UserManager()
 
@@ -85,34 +89,34 @@ class User(AbstractBaseUser, PermissionsMixin):
             models.Index(fields=['date_joined']),
         ]
 
-    def __str__(self):
+    def __str__(self) -> str:
         """
         String representation of the User.
         """
         return self.email
 
     @property
-    def full_name(self):
+    def full_name(self) -> str:
         """
         Return the full name of the user.
         """
         return f"{self.first_name} {self.last_name}".strip()
 
     @property
-    def is_agent(self):
+    def is_instructor(self) -> bool:
         """
-        Check if user is an agent.
+        Check if user is an instructor.
         """
-        return self.user_type == self.UserType.AGENT
+        return self.user_type == self.UserType.INSTRUCTOR
 
     @property
-    def is_investor(self):
+    def is_admin(self) -> bool:
         """
-        Check if user is an investor.
+        Check if user is an admin.
         """
-        return self.user_type == self.UserType.INVESTOR
+        return self.user_type == self.UserType.ADMIN
 
-    def get_display_name(self):
+    def get_display_name(self) -> str:
         """
         Get display name for the user.
         """
@@ -121,15 +125,130 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.email.split('@')[0]
 
     @property
-    def display_name(self):
+    def display_name(self) -> str:
         """
         Return the display name of the user.
         """
         return self.get_display_name()
 
-    def update_last_login(self):
+    def update_last_login(self) -> None:
         """
         Update the last login timestamp.
         """
         self.last_login = timezone.now()
         self.save(update_fields=['last_login'])
+
+    def get_age(self) -> Optional[int]:
+        """
+        Calculate and return user's age.
+        """
+        if self.date_of_birth:
+            from datetime import date
+            today = date.today()
+            return today.year - self.date_of_birth.year - ((today.month, today.day) < (self.date_of_birth.month, self.date_of_birth.day))
+        return None
+
+class UserProfile(models.Model):
+    """
+    Extended profile information for users in the fitness platform.
+    """
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    
+    # Fitness preferences
+    experience_level = models.CharField(
+        max_length=20,
+        choices=[
+            ('beginner', 'Beginner'),
+            ('intermediate', 'Intermediate'),
+            ('advanced', 'Advanced'),
+        ],
+        default='beginner'
+    )
+    
+    # Physical information
+    height = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True, help_text="Height in cm")
+    weight = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True, help_text="Weight in kg")
+    
+    # Fitness tracking
+    weekly_workout_goal = models.PositiveIntegerField(default=3, help_text="Target workouts per week")
+    preferred_workout_duration = models.PositiveIntegerField(default=60, help_text="Preferred workout duration in minutes")
+    
+    # Notification preferences
+    email_notifications = models.BooleanField(default=True)
+    sms_notifications = models.BooleanField(default=False)
+    push_notifications = models.BooleanField(default=True)
+    
+    # Privacy settings
+    profile_visibility = models.CharField(
+        max_length=20,
+        choices=[
+            ('public', 'Public'),
+            ('private', 'Private'),
+            ('friends_only', 'Friends Only'),
+        ],
+        default='public'
+    )
+    
+    # Timestamps
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        db_table = 'user_profiles'
+        indexes = [
+            models.Index(fields=['experience_level']),
+            models.Index(fields=['profile_visibility']),
+        ]
+    
+    def __str__(self) -> str:
+        return f"Profile for {self.user.email}"
+    
+    def get_bmi(self) -> Optional[float]:
+        """
+        Calculate and return BMI if height and weight are available.
+        """
+        if self.height and self.weight:
+            height_m = float(self.height) / 100  # Convert cm to meters
+            weight_kg = float(self.weight)
+            return round(weight_kg / (height_m ** 2), 2)
+        return None
+    
+    def get_bmi_category(self) -> Optional[str]:
+        """
+        Get BMI category based on calculated BMI.
+        """
+        bmi = self.get_bmi()
+        if bmi is None:
+            return None
+        
+        if bmi < 18.5:
+            return 'underweight'
+        elif bmi < 25:
+            return 'normal'
+        elif bmi < 30:
+            return 'overweight'
+        else:
+            return 'obese'
+
+
+# Django signals
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender: type[User], instance: User, created: bool, **kwargs) -> None:
+    """
+    Create a UserProfile when a new User is created.
+    """
+    if created:
+        UserProfile.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender: type[User], instance: User, **kwargs) -> None:
+    """
+    Save the UserProfile when the User is saved.
+    """
+    if hasattr(instance, 'profile'):
+        instance.profile.save()

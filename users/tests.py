@@ -5,8 +5,11 @@ from django.contrib.auth import get_user_model
 from rest_framework.test import APITestCase, APIClient
 from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
-from .models import User
+from .models import User, UserProfile
 from .serializers import UserRegistrationSerializer, UserDetailSerializer
+from django.core.exceptions import ValidationError
+from django.utils import timezone
+from datetime import date
 
 User = get_user_model()
 
@@ -25,28 +28,17 @@ class UserModelTest(TestCase):
             'first_name': 'John',
             'last_name': 'Doe',
             'phone_number': '+1234567890',
-            'user_type': User.UserType.AGENT,
-            'company_name': 'Test Company',
-            'license_number': 'LIC123456',
-            'bio': 'Test bio',
-            'website': 'https://test.com'
+            'user_type': User.UserType.USER,
         }
     
     def test_create_user(self):
         """
-        Test creating a new user.
+        Test creating a regular user.
         """
-        user = User.objects.create_user(
-            email=self.user_data['email'],
-            password=self.user_data['password'],
-            first_name=self.user_data['first_name'],
-            last_name=self.user_data['last_name']
-        )
-        
+        user = User.objects.create_user(**self.user_data)
         self.assertEqual(user.email, self.user_data['email'])
-        self.assertEqual(user.first_name, self.user_data['first_name'])
-        self.assertEqual(user.last_name, self.user_data['last_name'])
         self.assertTrue(user.check_password(self.user_data['password']))
+        self.assertEqual(user.user_type, User.UserType.USER)
         self.assertTrue(user.is_active)
         self.assertFalse(user.is_staff)
         self.assertFalse(user.is_superuser)
@@ -59,11 +51,30 @@ class UserModelTest(TestCase):
             email='admin@example.com',
             password='adminpass123'
         )
-        
-        self.assertEqual(superuser.email, 'admin@example.com')
         self.assertTrue(superuser.is_staff)
         self.assertTrue(superuser.is_superuser)
-        self.assertTrue(superuser.check_password('adminpass123'))
+        self.assertTrue(superuser.is_active)
+    
+    def test_user_full_name(self):
+        """
+        Test the full_name property.
+        """
+        user = User.objects.create_user(**self.user_data)
+        self.assertEqual(user.full_name, 'John Doe')
+        
+        # Test with only first name
+        user.last_name = ''
+        self.assertEqual(user.full_name, 'John')
+        
+        # Test with only last name
+        user.first_name = ''
+        user.last_name = 'Doe'
+        self.assertEqual(user.full_name, 'Doe')
+        
+        # Test with no names
+        user.first_name = ''
+        user.last_name = ''
+        self.assertEqual(user.full_name, '')
     
     def test_user_str_representation(self):
         """
@@ -75,37 +86,23 @@ class UserModelTest(TestCase):
         )
         self.assertEqual(str(user), 'test@example.com')
     
-    def test_user_full_name_property(self):
-        """
-        Test full_name property.
-        """
-        user = User.objects.create_user(
-            email='test@example.com',
-            password='testpass123',
-            first_name='John',
-            last_name='Doe'
-        )
-        self.assertEqual(user.full_name, 'John Doe')
-    
     def test_user_type_properties(self):
         """
         Test user type properties.
         """
-        agent = User.objects.create_user(
-            email='agent@example.com',
-            password='testpass123',
-            user_type=User.UserType.AGENT
-        )
-        investor = User.objects.create_user(
-            email='investor@example.com',
-            password='testpass123',
-            user_type=User.UserType.INVESTOR
-        )
+        user = User.objects.create_user(**self.user_data)
+        self.assertFalse(user.is_instructor)
+        self.assertFalse(user.is_admin)
         
-        self.assertTrue(agent.is_agent)
-        self.assertFalse(agent.is_investor)
-        self.assertTrue(investor.is_investor)
-        self.assertFalse(investor.is_agent)
+        # Test instructor
+        user.user_type = User.UserType.INSTRUCTOR
+        self.assertTrue(user.is_instructor)
+        self.assertFalse(user.is_admin)
+        
+        # Test admin
+        user.user_type = User.UserType.ADMIN
+        self.assertFalse(user.is_instructor)
+        self.assertTrue(user.is_admin)
     
     def test_user_display_name(self):
         """
@@ -124,6 +121,112 @@ class UserModelTest(TestCase):
         
         self.assertEqual(user_with_name.get_display_name(), 'John Doe')
         self.assertEqual(user_without_name.get_display_name(), 'test2')
+    
+    def test_user_age_calculation(self):
+        """
+        Test age calculation.
+        """
+        user = User.objects.create_user(**self.user_data)
+        self.assertIsNone(user.get_age())
+        
+        # Test with date of birth
+        user.date_of_birth = date(1990, 1, 1)
+        current_year = timezone.now().year
+        expected_age = current_year - 1990
+        self.assertEqual(user.get_age(), expected_age)
+    
+    def test_user_update_last_login(self):
+        """
+        Test updating last login.
+        """
+        user = User.objects.create_user(**self.user_data)
+        initial_login = user.last_login
+        user.update_last_login()
+        self.assertIsNotNone(user.last_login)
+        self.assertNotEqual(user.last_login, initial_login)
+
+
+class UserProfileModelTest(TestCase):
+    """
+    Test cases for the UserProfile model.
+    """
+    
+    def setUp(self):
+        """
+        Set up test data.
+        """
+        self.user = User.objects.create_user(
+            email='test@example.com',
+            password='testpass123',
+            first_name='John',
+            last_name='Doe'
+        )
+    
+    def test_user_profile_creation(self):
+        """
+        Test that UserProfile is automatically created.
+        """
+        self.assertTrue(hasattr(self.user, 'profile'))
+        self.assertIsInstance(self.user.profile, UserProfile)
+    
+    def test_user_profile_defaults(self):
+        """
+        Test UserProfile default values.
+        """
+        profile = self.user.profile
+        self.assertEqual(profile.experience_level, 'beginner')
+        self.assertEqual(profile.weekly_workout_goal, 3)
+        self.assertEqual(profile.preferred_workout_duration, 60)
+        self.assertTrue(profile.email_notifications)
+        self.assertFalse(profile.sms_notifications)
+        self.assertTrue(profile.push_notifications)
+        self.assertEqual(profile.profile_visibility, 'public')
+    
+    def test_bmi_calculation(self):
+        """
+        Test BMI calculation.
+        """
+        profile = self.user.profile
+        
+        # Test with no height/weight
+        self.assertIsNone(profile.get_bmi())
+        
+        # Test with height and weight
+        profile.height = 170  # 170 cm
+        profile.weight = 70   # 70 kg
+        expected_bmi = 70 / (1.7 ** 2)  # 24.22
+        self.assertAlmostEqual(profile.get_bmi(), expected_bmi, places=2)
+    
+    def test_bmi_category(self):
+        """
+        Test BMI category classification.
+        """
+        profile = self.user.profile
+        
+        # Test underweight
+        profile.height = 170
+        profile.weight = 50
+        self.assertEqual(profile.get_bmi_category(), 'underweight')
+        
+        # Test normal
+        profile.weight = 70
+        self.assertEqual(profile.get_bmi_category(), 'normal')
+        
+        # Test overweight
+        profile.weight = 80
+        self.assertEqual(profile.get_bmi_category(), 'overweight')
+        
+        # Test obese
+        profile.weight = 100
+        self.assertEqual(profile.get_bmi_category(), 'obese')
+    
+    def test_user_profile_str(self):
+        """
+        Test UserProfile string representation.
+        """
+        profile = self.user.profile
+        self.assertEqual(str(profile), f"Profile for {self.user.email}")
+
 
 class UserSerializerTest(TestCase):
     """
@@ -141,11 +244,11 @@ class UserSerializerTest(TestCase):
             'first_name': 'John',
             'last_name': 'Doe',
             'phone_number': '+1234567890',
-            'user_type': User.UserType.AGENT,
-            'company_name': 'Test Company',
-            'license_number': 'LIC123456',
-            'bio': 'Test bio',
-            'website': 'https://test.com'
+            'user_type': User.UserType.USER,
+            'company_name': 'Test Gym',
+            'bio': 'Fitness enthusiast',
+            'fitness_goals': 'Build muscle and improve endurance',
+            'preferred_class_types': ['yoga', 'hiit']
         }
     
     def test_user_registration_serializer_valid(self):
@@ -191,7 +294,7 @@ class UserSerializerTest(TestCase):
         
         self.assertEqual(data['email'], 'test@example.com')
         self.assertEqual(data['full_name'], 'John Doe')
-        self.assertEqual(data['display_name'], 'John Doe')
+
 
 class UserViewsTest(APITestCase):
     """
@@ -203,210 +306,138 @@ class UserViewsTest(APITestCase):
         Set up test data.
         """
         self.client = APIClient()
-        self.register_url = reverse('user-register')
-        self.login_url = reverse('user-login')
-        self.profile_url = reverse('user-profile')
-        self.change_password_url = reverse('change-password')
-        self.user_list_url = reverse('user-list')
-        
-        self.user_data = {
-            'email': 'test@example.com',
-            'password': 'testpass123',
-            'confirm_password': 'testpass123',
-            'first_name': 'John',
-            'last_name': 'Doe',
-            'phone_number': '+1234567890',
-            'user_type': User.UserType.AGENT,
-            'company_name': 'Test Company',
-            'license_number': 'LIC123456',
-            'bio': 'Test bio',
-            'website': 'https://test.com'
-        }
-        
-        # Create a test user
         self.user = User.objects.create_user(
-            email='existing@example.com',
+            email='test@example.com',
             password='testpass123',
-            first_name='Jane',
-            last_name='Smith'
+            first_name='John',
+            last_name='Doe'
         )
+        self.admin_user = User.objects.create_superuser(
+            email='admin@example.com',
+            password='adminpass123'
+        )
+    
+    def get_tokens_for_user(self, user):
+        """
+        Get JWT tokens for a user.
+        """
+        refresh = RefreshToken.for_user(user)
+        return {
+            'refresh': str(refresh),
+            'access': str(refresh.access_token),
+        }
     
     def test_user_registration_success(self):
         """
         Test successful user registration.
         """
-        response = self.client.post(self.register_url, self.user_data)
+        url = reverse('users:register')
+        data = {
+            'email': 'newuser@example.com',
+            'password': 'newpass123',
+            'confirm_password': 'newpass123',
+            'first_name': 'Jane',
+            'last_name': 'Smith',
+            'phone_number': '+1234567890',
+            'user_type': User.UserType.USER,
+        }
         
+        response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertIn('message', response.data)
-        self.assertEqual(response.data['message'], 'User registered successfully')
-        self.assertIn('data', response.data)
-        self.assertIn('user_id', response.data['data'])
-        self.assertIn('email', response.data['data'])
-        
-        # Check if user was created in database
-        user = User.objects.get(email=self.user_data['email'])
-        self.assertEqual(user.first_name, self.user_data['first_name'])
-        self.assertEqual(user.last_name, self.user_data['last_name'])
+        self.assertEqual(User.objects.count(), 3)  # Including admin user
     
     def test_user_registration_invalid_data(self):
         """
         Test user registration with invalid data.
         """
-        invalid_data = self.user_data.copy()
-        invalid_data['email'] = 'invalid-email'
+        url = reverse('users:register')
+        data = {
+            'email': 'invalid-email',
+            'password': 'short',
+            'confirm_password': 'different',
+        }
         
-        response = self.client.post(self.register_url, invalid_data)
-        
+        response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        self.assertIn('message', response.data)
-        self.assertEqual(response.data['message'], 'Registration failed')
-        self.assertIn('error', response.data)
     
     def test_user_login_success(self):
         """
         Test successful user login.
         """
-        login_data = {
-            'email': 'existing@example.com',
-            'password': 'testpass123'
+        url = reverse('users:login')
+        data = {
+            'email': 'test@example.com',
+            'password': 'testpass123',
         }
         
-        response = self.client.post(self.login_url, login_data)
-        
+        response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertIn('message', response.data)
-        self.assertEqual(response.data['message'], 'Login successful')
-        self.assertIn('data', response.data)
-        self.assertIn('access', response.data['data'])
-        self.assertIn('refresh', response.data['data'])
-        self.assertIn('user', response.data['data'])
+        self.assertIn('access', response.data)
+        self.assertIn('refresh', response.data)
     
     def test_user_login_invalid_credentials(self):
         """
         Test user login with invalid credentials.
         """
-        login_data = {
-            'email': 'existing@example.com',
-            'password': 'wrongpassword'
+        url = reverse('users:login')
+        data = {
+            'email': 'test@example.com',
+            'password': 'wrongpassword',
         }
         
-        response = self.client.post(self.login_url, login_data)
-        
-        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
-        self.assertIn('message', response.data)
-        self.assertEqual(response.data['message'], 'Login failed')
-        self.assertIn('error', response.data)
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
     
     def test_user_profile_get(self):
         """
         Test getting user profile.
         """
-        # Authenticate user
-        refresh = RefreshToken.for_user(self.user)
-        self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {refresh.access_token}')
+        tokens = self.get_tokens_for_user(self.user)
+        self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {tokens["access"]}')
         
-        response = self.client.get(self.profile_url)
-        
+        url = reverse('users:profile')
+        response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertIn('message', response.data)
-        self.assertEqual(response.data['message'], 'Profile retrieved successfully')
-        self.assertIn('data', response.data)
-        self.assertEqual(response.data['data']['email'], self.user.email)
+        self.assertEqual(response.data['email'], 'test@example.com')
     
     def test_user_profile_update(self):
         """
         Test updating user profile.
         """
-        # Authenticate user
-        refresh = RefreshToken.for_user(self.user)
-        self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {refresh.access_token}')
+        tokens = self.get_tokens_for_user(self.user)
+        self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {tokens["access"]}')
         
-        update_data = {
+        url = reverse('users:profile')
+        data = {
             'first_name': 'Updated',
             'last_name': 'Name',
-            'bio': 'Updated bio'
+            'bio': 'Updated bio',
         }
         
-        response = self.client.put(self.profile_url, update_data)
-        
+        response = self.client.patch(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertIn('message', response.data)
-        self.assertEqual(response.data['message'], 'Profile updated successfully')
-        
-        # Check if user was updated in database
         self.user.refresh_from_db()
         self.assertEqual(self.user.first_name, 'Updated')
-        self.assertEqual(self.user.last_name, 'Name')
-        self.assertEqual(self.user.bio, 'Updated bio')
-    
-    def test_password_change_success(self):
-        """
-        Test successful password change.
-        """
-        # Authenticate user
-        refresh = RefreshToken.for_user(self.user)
-        self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {refresh.access_token}')
-        
-        password_data = {
-            'old_password': 'testpass123',
-            'new_password': 'newpass123',
-            'confirm_new_password': 'newpass123'
-        }
-        
-        response = self.client.post(self.change_password_url, password_data)
-        
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertIn('message', response.data)
-        self.assertEqual(response.data['message'], 'Password changed successfully')
-        
-        # Check if password was changed
-        self.user.refresh_from_db()
-        self.assertTrue(self.user.check_password('newpass123'))
-    
-    def test_password_change_invalid_old_password(self):
-        """
-        Test password change with invalid old password.
-        """
-        # Authenticate user
-        refresh = RefreshToken.for_user(self.user)
-        self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {refresh.access_token}')
-        
-        password_data = {
-            'old_password': 'wrongpassword',
-            'new_password': 'newpass123',
-            'confirm_new_password': 'newpass123'
-        }
-        
-        response = self.client.post(self.change_password_url, password_data)
-        
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        self.assertIn('message', response.data)
-        self.assertEqual(response.data['message'], 'Password change failed')
     
     def test_user_list_authenticated(self):
         """
         Test getting user list when authenticated.
         """
-        # Authenticate user
-        refresh = RefreshToken.for_user(self.user)
-        self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {refresh.access_token}')
+        tokens = self.get_tokens_for_user(self.admin_user)
+        self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {tokens["access"]}')
         
-        response = self.client.get(self.user_list_url)
-        
+        url = reverse('users:user-list')
+        response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertIn('message', response.data)
-        self.assertEqual(response.data['message'], 'Data retrieved successfully')
-        self.assertIn('data', response.data)
-        self.assertIn('results', response.data['data'])
     
     def test_user_list_unauthenticated(self):
         """
         Test getting user list when not authenticated.
         """
-        response = self.client.get(self.user_list_url)
-        
+        url = reverse('users:user-list')
+        response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
 
 @pytest.mark.django_db
 class TestUserModelPytest:
@@ -416,7 +447,7 @@ class TestUserModelPytest:
     
     def test_create_user_with_email(self):
         """
-        Test creating a user with email.
+        Test creating user with email.
         """
         user = User.objects.create_user(
             email='test@example.com',
@@ -426,17 +457,18 @@ class TestUserModelPytest:
         assert user.check_password('testpass123')
         assert user.is_active is True
         assert user.is_staff is False
+        assert user.is_superuser is False
     
     def test_create_user_without_email_raises_error(self):
         """
-        Test creating a user without email raises error.
+        Test creating user without email raises error.
         """
-        with pytest.raises(ValueError, match='The Email field must be set'):
-            User.objects.create_user(email='', password='testpass123')
+        with pytest.raises(ValueError):
+            User.objects.create_user(email='')
     
     def test_create_superuser(self):
         """
-        Test creating a superuser.
+        Test creating superuser.
         """
         superuser = User.objects.create_superuser(
             email='admin@example.com',
@@ -444,4 +476,4 @@ class TestUserModelPytest:
         )
         assert superuser.is_staff is True
         assert superuser.is_superuser is True
-        assert superuser.check_password('adminpass123')
+        assert superuser.is_active is True

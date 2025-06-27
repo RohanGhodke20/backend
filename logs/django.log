@@ -109,3 +109,599 @@ core.exceptions.UnauthorizedException: Invalid email or password
 [2025-06-19 12:33:51,396] WARNING core.decorators wrapper:150 - Validation Error: Missing required fields: email, password | View: post | User: AnonymousUser
 [2025-06-19 12:33:51,396] INFO core.decorators wrapper:108 - API Response: 400 | POST /api/v1/users/login/ | View: post
 [2025-06-19 12:33:51,397] WARNING django.server log_message:213 - "POST /api/v1/users/login/ HTTP/1.1" 400 102
+[2025-06-26 09:12:27,969] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 09:56:23,858] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 09:56:47,207] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 09:58:34,730] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/core/settings.py changed, reloading.
+[2025-06-26 09:58:35,014] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 09:58:35,097] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/core/settings.py changed, reloading.
+[2025-06-26 09:58:35,114] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/core/settings.py changed, reloading.
+[2025-06-26 09:58:35,393] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 09:58:41,238] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/core/settings.py changed, reloading.
+[2025-06-26 09:58:41,538] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 09:58:41,629] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/core/settings.py changed, reloading.
+[2025-06-26 09:58:41,916] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:02:57,840] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:04:04,309] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:04:12,741] WARNING django.server log_message:213 - "GET / HTTP/1.1" 404 2859
+[2025-06-26 10:04:17,843] WARNING django.server log_message:213 - "GET /api/ HTTP/1.1" 404 2889
+[2025-06-26 10:21:48,738] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/core/settings.py changed, reloading.
+[2025-06-26 10:21:48,981] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:21:55,197] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/core/settings.py changed, reloading.
+[2025-06-26 10:21:55,449] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:22:10,843] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/core/urls.py changed, reloading.
+[2025-06-26 10:22:11,118] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:22:12,283] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/core/urls.py changed, reloading.
+[2025-06-26 10:22:12,530] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:24:46,123] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:24:46,394] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:24:47,552] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:24:47,787] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:24:53,015] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/bookings/views.py changed, reloading.
+[2025-06-26 10:24:53,337] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:24:54,518] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/bookings/views.py changed, reloading.
+[2025-06-26 10:24:54,777] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:26:05,016] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/users/models.py changed, reloading.
+[2025-06-26 10:26:05,283] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:26:06,458] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/users/models.py changed, reloading.
+[2025-06-26 10:26:06,734] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:26:23,146] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/users/models.py changed, reloading.
+[2025-06-26 10:26:23,401] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:26:24,530] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/users/models.py changed, reloading.
+[2025-06-26 10:26:24,780] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:26:30,999] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/users/models.py changed, reloading.
+[2025-06-26 10:26:31,253] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:26:52,675] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/users/admin.py changed, reloading.
+[2025-06-26 10:26:52,928] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:26:54,068] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/users/admin.py changed, reloading.
+[2025-06-26 10:26:54,316] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:31:09,391] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/models.py changed, reloading.
+[2025-06-26 10:31:09,669] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:31:12,852] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/models.py changed, reloading.
+[2025-06-26 10:31:13,148] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:31:20,376] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/models.py changed, reloading.
+[2025-06-26 10:31:20,665] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:32:17,702] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/admin.py changed, reloading.
+[2025-06-26 10:32:17,952] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:33:58,553] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/admin.py changed, reloading.
+[2025-06-26 10:33:58,806] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:34:05,029] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/admin.py changed, reloading.
+[2025-06-26 10:34:05,310] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:38:02,002] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/bookings/models.py changed, reloading.
+[2025-06-26 10:38:02,301] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:38:06,481] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/bookings/models.py changed, reloading.
+[2025-06-26 10:38:06,754] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:38:18,108] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/bookings/admin.py changed, reloading.
+[2025-06-26 10:38:18,351] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:38:22,539] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/bookings/admin.py changed, reloading.
+[2025-06-26 10:38:22,855] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:39:33,172] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/models.py changed, reloading.
+[2025-06-26 10:39:33,468] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:40:44,150] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/bookings/models.py changed, reloading.
+[2025-06-26 10:40:44,443] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:40:46,618] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/bookings/models.py changed, reloading.
+[2025-06-26 10:40:46,899] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:40:52,110] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/models.py changed, reloading.
+[2025-06-26 10:40:52,363] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:40:54,525] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/models.py changed, reloading.
+[2025-06-26 10:40:54,813] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:41:03,071] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/models.py changed, reloading.
+[2025-06-26 10:41:03,343] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:41:11,580] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/models.py changed, reloading.
+[2025-06-26 10:41:11,877] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:41:13,103] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/models.py changed, reloading.
+[2025-06-26 10:41:13,355] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:41:16,531] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/models.py changed, reloading.
+[2025-06-26 10:41:16,782] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:45:15,420] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:45:15,692] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:45:19,945] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:45:20,238] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:45:24,489] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/urls.py changed, reloading.
+[2025-06-26 10:45:24,772] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:45:26,940] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/urls.py changed, reloading.
+[2025-06-26 10:45:27,208] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:46:17,756] ERROR core.exceptions handle_exception:51 - Unexpected Exception: name 'models' is not defined | User: user@example.com | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/9999/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 212, in get
+    return self.retrieve(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 87, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/home/aubergine/Workspace/backend/classes/views.py", line 47, in get_queryset
+    .annotate(class_count=Count('classes', filter=models.Q(classes__is_active=True)))
+NameError: name 'models' is not defined
+[2025-06-26 10:46:18,200] WARNING core.exceptions handle_exception:41 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/4/
+[2025-06-26 10:46:18,643] ERROR core.exceptions handle_exception:51 - Unexpected Exception: name 'models' is not defined | User: user@example.com | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/7/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 212, in get
+    return self.retrieve(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 87, in get_object
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/home/aubergine/Workspace/backend/classes/views.py", line 47, in get_queryset
+    .annotate(class_count=Count('classes', filter=models.Q(classes__is_active=True)))
+NameError: name 'models' is not defined
+[2025-06-26 10:46:19,084] WARNING core.exceptions handle_exception:41 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryListView | Path: /api/v1/classes/categories/
+[2025-06-26 10:46:19,525] ERROR core.exceptions handle_exception:51 - Unexpected Exception: name 'models' is not defined | User: user@example.com | View: ClassCategoryListView | Path: /api/v1/classes/categories/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/home/aubergine/Workspace/backend/classes/views.py", line 28, in get_queryset
+    .annotate(class_count=Count('classes', filter=models.Q(classes__is_active=True)))
+NameError: name 'models' is not defined
+[2025-06-26 10:46:32,427] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:46:32,711] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:46:41,963] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:46:42,241] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:46:45,822] ERROR core.exceptions handle_exception:51 - Unexpected Exception: No ClassCategory matches the given query. | User: user@example.com | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/9999/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+classes.models.ClassCategory.DoesNotExist: ClassCategory matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 212, in get
+    return self.retrieve(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 100, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 92, in get_object_or_404
+    raise Http404(
+django.http.response.Http404: No ClassCategory matches the given query.
+[2025-06-26 10:46:46,264] WARNING core.exceptions handle_exception:41 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/4/
+[2025-06-26 10:46:46,707] ERROR core.exceptions handle_exception:51 - Unexpected Exception: can't set attribute 'class_count' | User: user@example.com | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/7/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 212, in get
+    return self.retrieve(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 100, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 629, in get
+    num = len(clone)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 131, in __iter__
+    setattr(obj, attr_name, row[col_pos])
+AttributeError: can't set attribute 'class_count'
+[2025-06-26 10:46:47,148] WARNING core.exceptions handle_exception:41 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryListView | Path: /api/v1/classes/categories/
+[2025-06-26 10:46:47,592] ERROR core.exceptions handle_exception:51 - Unexpected Exception: can't set attribute 'class_count' | User: user@example.com | View: ClassCategoryListView | Path: /api/v1/classes/categories/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/pagination.py", line 222, in paginate_queryset
+    return list(self.page)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/core/paginator.py", line 191, in __len__
+    return len(self.object_list)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 131, in __iter__
+    setattr(obj, attr_name, row[col_pos])
+AttributeError: can't set attribute 'class_count'
+[2025-06-26 10:47:14,877] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/serializers.py changed, reloading.
+[2025-06-26 10:47:15,149] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:47:31,539] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/serializers.py changed, reloading.
+[2025-06-26 10:47:31,820] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:47:36,050] ERROR core.exceptions handle_exception:51 - Unexpected Exception: No ClassCategory matches the given query. | User: user@example.com | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/9999/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+classes.models.ClassCategory.DoesNotExist: ClassCategory matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 212, in get
+    return self.retrieve(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 100, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 92, in get_object_or_404
+    raise Http404(
+django.http.response.Http404: No ClassCategory matches the given query.
+[2025-06-26 10:47:36,505] WARNING core.exceptions handle_exception:41 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/4/
+[2025-06-26 10:47:36,946] ERROR core.exceptions handle_exception:51 - Unexpected Exception: can't set attribute 'class_count' | User: user@example.com | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/7/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 212, in get
+    return self.retrieve(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 100, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 629, in get
+    num = len(clone)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 131, in __iter__
+    setattr(obj, attr_name, row[col_pos])
+AttributeError: can't set attribute 'class_count'
+[2025-06-26 10:47:37,390] WARNING core.exceptions handle_exception:41 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryListView | Path: /api/v1/classes/categories/
+[2025-06-26 10:47:37,838] ERROR core.exceptions handle_exception:51 - Unexpected Exception: can't set attribute 'class_count' | User: user@example.com | View: ClassCategoryListView | Path: /api/v1/classes/categories/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/pagination.py", line 222, in paginate_queryset
+    return list(self.page)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/core/paginator.py", line 191, in __len__
+    return len(self.object_list)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 131, in __iter__
+    setattr(obj, attr_name, row[col_pos])
+AttributeError: can't set attribute 'class_count'
+[2025-06-26 10:48:04,429] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/models.py changed, reloading.
+[2025-06-26 10:48:04,695] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:48:19,023] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/models.py changed, reloading.
+[2025-06-26 10:48:19,304] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:48:22,685] ERROR core.exceptions handle_exception:51 - Unexpected Exception: No ClassCategory matches the given query. | User: user@example.com | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/9999/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+classes.models.ClassCategory.DoesNotExist: ClassCategory matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 212, in get
+    return self.retrieve(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 100, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 92, in get_object_or_404
+    raise Http404(
+django.http.response.Http404: No ClassCategory matches the given query.
+[2025-06-26 10:48:23,125] WARNING core.exceptions handle_exception:41 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/4/
+[2025-06-26 10:48:23,586] ERROR core.exceptions handle_exception:51 - Unexpected Exception: can't set attribute 'class_count' | User: user@example.com | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/7/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 212, in get
+    return self.retrieve(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 100, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 629, in get
+    num = len(clone)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 131, in __iter__
+    setattr(obj, attr_name, row[col_pos])
+AttributeError: can't set attribute 'class_count'
+[2025-06-26 10:48:24,029] WARNING core.exceptions handle_exception:41 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryListView | Path: /api/v1/classes/categories/
+[2025-06-26 10:48:24,475] ERROR core.exceptions handle_exception:51 - Unexpected Exception: can't set attribute 'class_count' | User: user@example.com | View: ClassCategoryListView | Path: /api/v1/classes/categories/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/pagination.py", line 222, in paginate_queryset
+    return list(self.page)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/core/paginator.py", line 191, in __len__
+    return len(self.object_list)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 131, in __iter__
+    setattr(obj, attr_name, row[col_pos])
+AttributeError: can't set attribute 'class_count'
+[2025-06-26 10:48:40,818] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:48:41,103] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:48:50,419] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:48:50,674] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:48:56,884] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/serializers.py changed, reloading.
+[2025-06-26 10:48:57,188] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:49:01,460] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:49:01,757] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:49:04,921] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/serializers.py changed, reloading.
+[2025-06-26 10:49:05,175] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:49:10,155] ERROR core.exceptions handle_exception:51 - Unexpected Exception: No ClassCategory matches the given query. | User: user@example.com | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/9999/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+classes.models.ClassCategory.DoesNotExist: ClassCategory matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 212, in get
+    return self.retrieve(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 100, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 92, in get_object_or_404
+    raise Http404(
+django.http.response.Http404: No ClassCategory matches the given query.
+[2025-06-26 10:49:10,620] WARNING core.exceptions handle_exception:41 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/4/
+[2025-06-26 10:49:11,084] ERROR core.exceptions handle_exception:51 - Unexpected Exception: maximum recursion depth exceeded | User: user@example.com | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/7/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 212, in get
+    return self.retrieve(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 573, in data
+    ret = super().data
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 540, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/fields.py", line 1870, in to_representation
+    return method(value)
+  File "/home/aubergine/Workspace/backend/classes/serializers.py", line 57, in get_class_count
+    return getattr(obj, 'annotated_class_count', obj.class_count)
+  File "/home/aubergine/Workspace/backend/classes/models.py", line 46, in class_count
+    if hasattr(self, 'class_count'):
+  File "/home/aubergine/Workspace/backend/classes/models.py", line 46, in class_count
+    if hasattr(self, 'class_count'):
+  File "/home/aubergine/Workspace/backend/classes/models.py", line 46, in class_count
+    if hasattr(self, 'class_count'):
+  [Previous line repeated 463 more times]
+RecursionError: maximum recursion depth exceeded
+[2025-06-26 10:49:11,552] WARNING core.exceptions handle_exception:41 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryListView | Path: /api/v1/classes/categories/
+[2025-06-26 10:49:11,995] ERROR core.exceptions handle_exception:51 - Unexpected Exception: maximum recursion depth exceeded | User: user@example.com | View: ClassCategoryListView | Path: /api/v1/classes/categories/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 797, in data
+    ret = super().data
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 715, in to_representation
+    return [
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 716, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 540, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/fields.py", line 1870, in to_representation
+    return method(value)
+  File "/home/aubergine/Workspace/backend/classes/serializers.py", line 41, in get_class_count
+    return getattr(obj, 'annotated_class_count', obj.class_count)
+  File "/home/aubergine/Workspace/backend/classes/models.py", line 46, in class_count
+    if hasattr(self, 'class_count'):
+  File "/home/aubergine/Workspace/backend/classes/models.py", line 46, in class_count
+    if hasattr(self, 'class_count'):
+  File "/home/aubergine/Workspace/backend/classes/models.py", line 46, in class_count
+    if hasattr(self, 'class_count'):
+  [Previous line repeated 462 more times]
+RecursionError: maximum recursion depth exceeded
+[2025-06-26 10:49:54,057] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/models.py changed, reloading.
+[2025-06-26 10:49:54,306] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:50:00,535] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/models.py changed, reloading.
+[2025-06-26 10:50:00,781] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:50:12,885] ERROR core.exceptions handle_exception:51 - Unexpected Exception: No ClassCategory matches the given query. | User: user@example.com | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/9999/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+classes.models.ClassCategory.DoesNotExist: ClassCategory matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 212, in get
+    return self.retrieve(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 100, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 92, in get_object_or_404
+    raise Http404(
+django.http.response.Http404: No ClassCategory matches the given query.
+[2025-06-26 10:50:13,328] WARNING core.exceptions handle_exception:41 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/4/
+[2025-06-26 10:50:14,214] WARNING core.exceptions handle_exception:41 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryListView | Path: /api/v1/classes/categories/
+[2025-06-26 10:52:21,127] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:52:21,371] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:52:29,601] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:52:29,903] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:52:53,051] ERROR core.exceptions handle_exception:51 - Unexpected Exception: No ClassCategory matches the given query. | User: testuser@example.com | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/99999/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+classes.models.ClassCategory.DoesNotExist: ClassCategory matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 212, in get
+    return self.retrieve(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/classes/views.py", line 86, in retrieve
+    instance = self.get_object()
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 100, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 92, in get_object_or_404
+    raise Http404(
+django.http.response.Http404: No ClassCategory matches the given query.
+[2025-06-26 10:52:53,493] WARNING core.exceptions handle_exception:41 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/3/
+[2025-06-26 10:52:54,429] WARNING core.exceptions handle_exception:41 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryListView | Path: /api/v1/classes/categories/
+[2025-06-26 10:53:09,694] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:53:09,938] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:54:16,104] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/core/exceptions.py changed, reloading.
+[2025-06-26 10:54:16,398] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:54:23,646] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:54:23,926] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:54:44,410] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:54:44,703] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:54:47,891] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/core/exceptions.py changed, reloading.
+[2025-06-26 10:54:48,176] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:55:01,933] WARNING core.exceptions handle_exception:40 - Not Found: 404 - No ClassCategory matches the given query. | User: testuser@example.com | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/99999/
+[2025-06-26 10:55:02,385] WARNING core.exceptions handle_exception:55 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryDetailView | Path: /api/v1/classes/categories/3/
+[2025-06-26 10:55:03,274] WARNING core.exceptions handle_exception:55 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryListView | Path: /api/v1/classes/categories/
+[2025-06-26 10:55:53,178] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:55:53,437] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:57:32,193] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:57:32,481] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:57:33,643] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:57:33,940] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:57:38,147] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:57:38,418] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:58:17,133] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:58:17,407] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 10:58:41,930] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 10:58:42,175] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 11:13:22,325] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/serializers.py changed, reloading.
+[2025-06-26 11:13:22,594] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 11:13:27,790] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/serializers.py changed, reloading.
+[2025-06-26 11:13:28,109] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 11:14:05,850] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 11:14:06,099] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 11:14:15,361] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 11:14:15,687] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 11:14:23,975] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/views.py changed, reloading.
+[2025-06-26 11:14:24,265] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 11:14:43,731] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/urls.py changed, reloading.
+[2025-06-26 11:14:44,011] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 11:15:02,417] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 11:15:11,525] INFO core.views api_root:20 - API root accessed by user: AnonymousUser
+[2025-06-26 11:15:11,526] INFO django.server log_message:213 - "GET /api/v1/ HTTP/1.1" 200 165
+[2025-06-26 11:15:16,402] WARNING core.exceptions handle_exception:55 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: ClassCategoryListView | Path: /api/v1/classes/categories/
+[2025-06-26 11:15:16,402] WARNING django.server log_message:213 - "GET /api/v1/classes/categories/ HTTP/1.1" 401 96
+[2025-06-26 11:18:49,455] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 11:18:54,785] INFO django.server log_message:213 - "GET /api/v1/classes/categories/ HTTP/1.1" 200 76
+[2025-06-26 11:19:00,883] INFO django.server log_message:213 - "GET /api/v1/classes/ HTTP/1.1" 200 67
+[2025-06-26 11:19:05,558] WARNING core.exceptions handle_exception:55 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: UserProfileView | Path: /api/v1/users/profile/
+[2025-06-26 11:19:05,560] WARNING django.server log_message:213 - "GET /api/v1/users/profile/ HTTP/1.1" 401 96
+[2025-06-26 11:19:17,023] WARNING core.exceptions handle_exception:55 - API Exception: 405 - Method "GET" not allowed. | User: AnonymousUser | View: UserRegistrationView | Path: /api/v1/users/register/
+[2025-06-26 11:19:17,024] WARNING django.server log_message:213 - "GET /api/v1/users/register/ HTTP/1.1" 405 78
+[2025-06-26 11:22:54,015] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 11:22:59,768] WARNING core.exceptions handle_exception:55 - API Exception: 401 - Authentication credentials were not provided. | User: AnonymousUser | View: UserBookingListView | Path: /api/v1/bookings/my-bookings/
+[2025-06-26 11:22:59,771] WARNING django.server log_message:213 - "GET /api/v1/bookings/my-bookings/ HTTP/1.1" 401 96
+[2025-06-26 11:23:06,953] INFO django.server log_message:213 - "GET /api/v1/bookings/reviews/class/1/ HTTP/1.1" 200 194
+[2025-06-26 11:37:53,979] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 11:38:01,530] INFO django.server log_message:213 - "GET /api/v1/classes/search/?time_of_day=morning&featured_only=true HTTP/1.1" 200 297
+[2025-06-26 11:38:08,945] ERROR core.decorators wrapper:49 - Unexpected Exception in get_queryset: module 'django.utils.timezone' has no attribute 'utc' | Args: (<classes.views.ClassCalendarView object at 0x70bc9dc1d900>,) | Kwargs: {}
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/core/decorators.py", line 36, in wrapper
+    return func(*args, **kwargs)
+  File "/home/aubergine/Workspace/backend/core/decorators.py", line 104, in wrapper
+    response = func(*args, **kwargs)
+  File "/home/aubergine/Workspace/backend/classes/views.py", line 566, in get_queryset
+    start_datetime = timezone.datetime.strptime(start_date, '%Y-%m-%d').replace(tzinfo=timezone.utc)
+AttributeError: module 'django.utils.timezone' has no attribute 'utc'
+[2025-06-26 11:38:08,945] ERROR core.exceptions handle_exception:65 - Unexpected Exception: The response content must be rendered before it can be iterated over. | User: AnonymousUser | View: ClassCalendarView | Path: /api/v1/classes/calendar/
+Traceback (most recent call last):
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/generics.py", line 203, in get
+    return self.list(request, *args, **kwargs)
+  File "/home/aubergine/Workspace/backend/classes/views.py", line 609, in list
+    calendar_data = self._group_by_date(queryset, serializer.data)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 797, in data
+    ret = super().data
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/rest_framework/serializers.py", line 715, in to_representation
+    return [
+  File "/home/aubergine/Workspace/backend/.venv/lib/python3.10/site-packages/django/template/response.py", line 127, in __iter__
+    raise ContentNotRenderedError(
+django.template.response.ContentNotRenderedError: The response content must be rendered before it can be iterated over.
+[2025-06-26 11:38:08,946] ERROR django.server log_message:213 - "GET /api/v1/classes/calendar/?start_date=2024-01-01&end_date=2024-12-31 HTTP/1.1" 500 136
+[2025-06-26 11:38:46,343] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-26 12:12:32,178] INFO users.management.commands.create_admin handle:141 - Admin user created: admin@getfit.com
+[2025-06-26 12:13:19,415] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-27 09:07:30,883] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-27 09:09:18,546] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-27 09:10:35,886] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/migrations/0002_create_sample_classes.py changed, reloading.
+[2025-06-27 09:10:35,887] INFO django.utils.autoreload trigger_reload:265 - /home/aubergine/Workspace/backend/classes/migrations/0002_create_sample_classes.py changed, reloading.
+[2025-06-27 09:10:36,186] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader
+[2025-06-27 09:10:36,214] INFO django.utils.autoreload run_with_reloader:667 - Watching for file changes with StatReloader

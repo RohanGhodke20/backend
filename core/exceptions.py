@@ -2,6 +2,8 @@ from rest_framework.exceptions import APIException
 from rest_framework import status
 from rest_framework.response import Response
 import logging
+from django.http import Http404
+from rest_framework.exceptions import NotFound
 
 logger = logging.getLogger(__name__)
 
@@ -32,7 +34,19 @@ def handle_exception(exc, context=None):
     user_info = f"User: {request.user}" if request and hasattr(request, 'user') else "Anonymous"
     view_name = view.__class__.__name__ if view else "Unknown"
     path = request.path if request else "Unknown"
-    
+
+    # Handle Django and DRF 404 exceptions centrally
+    if isinstance(exc, (Http404, NotFound)):
+        logger.warning(
+            f"Not Found: 404 - {str(exc)} | {user_info} | View: {view_name} | Path: {path}"
+        )
+        from core.exceptions import NotFoundException
+        not_found_exc = NotFoundException(detail="Resource not found.")
+        return Response(
+            ResponseHandler.error(message="Not found", error=not_found_exc.detail),
+            status=not_found_exc.status_code
+        )
+
     if isinstance(exc, APIException):
         detail = exc.detail if hasattr(exc, 'detail') else str(exc)
         status_code = exc.status_code if hasattr(exc, 'status_code') else status.HTTP_400_BAD_REQUEST

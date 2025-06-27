@@ -1,72 +1,681 @@
 {
   "info": {
     "_postman_id": "b1e1c1e2-1234-5678-9101-abcdefabcdef",
-    "name": "Users API",
+    "name": "Get Fit - Fitness Class Booking API",
+    "description": "Complete API collection for the Get Fit fitness class booking platform",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    },
+    {
+      "key": "access_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "refresh_token",
+      "value": "",
+      "type": "string"
+    }
+  ],
   "item": [
     {
-      "name": "Register User",
-      "request": {
-        "method": "POST",
-        "header": [
-          { "key": "Content-Type", "value": "application/json" }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"yourpassword\",\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\"\n}"
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"yourpassword\",\n  \"confirm_password\": \"yourpassword\",\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"phone_number\": \"+1234567890\",\n  \"user_type\": \"user\",\n  \"bio\": \"Fitness enthusiast\",\n  \"company_name\": \"Tech Corp\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/users/register/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "users", "register", ""]
+            }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "http://localhost:8000/api/users/register/",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8000",
-          "path": ["api", "users", "register", ""]
+        {
+          "name": "Register Admin User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@getfit.com\",\n  \"password\": \"adminpassword123\",\n  \"confirm_password\": \"adminpassword123\",\n  \"first_name\": \"Admin\",\n  \"last_name\": \"User\",\n  \"phone_number\": \"+1234567890\",\n  \"user_type\": \"admin\",\n  \"bio\": \"Platform Administrator\",\n  \"company_name\": \"Get Fit Platform\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/users/register/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "users", "register", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register Instructor",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"instructor@getfit.com\",\n  \"password\": \"instructorpass123\",\n  \"confirm_password\": \"instructorpass123\",\n  \"first_name\": \"Sarah\",\n  \"last_name\": \"Johnson\",\n  \"phone_number\": \"+1234567890\",\n  \"user_type\": \"instructor\",\n  \"bio\": \"Certified yoga instructor with 5 years of experience\",\n  \"company_name\": \"Yoga Studio Plus\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/users/register/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "users", "register", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login (Obtain JWT Token)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"yourpassword\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/users/login/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "users", "login", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Refresh JWT Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refresh\": \"{{refresh_token}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/users/token/refresh/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "users", "token", "refresh", ""]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
     },
     {
-      "name": "Login (Obtain JWT Token)",
-      "request": {
-        "method": "POST",
-        "header": [
-          { "key": "Content-Type", "value": "application/json" }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"yourpassword\"\n}"
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get User Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/users/profile/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "users", "profile", ""]
+            }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "http://localhost:8000/api/users/login/",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8000",
-          "path": ["api", "users", "login", ""]
+        {
+          "name": "Update User Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"John Updated\",\n  \"last_name\": \"Doe Updated\",\n  \"phone_number\": \"+1234567890\",\n  \"date_of_birth\": \"1990-01-01\",\n  \"gender\": \"male\",\n  \"bio\": \"Updated bio\",\n  \"company_name\": \"Updated Corp\",\n  \"is_verified\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/users/profile/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "users", "profile", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"old_password\": \"yourpassword\",\n  \"new_password\": \"newpassword123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/users/change-password/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "users", "change-password", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Users (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/users/users/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "users", "users", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Detail (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/users/users/1/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "users", "users", "1", ""]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
     },
     {
-      "name": "Refresh JWT Token",
-      "request": {
-        "method": "POST",
-        "header": [
-          { "key": "Content-Type", "value": "application/json" }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"refresh\": \"<refresh_token>\"\n}"
+      "name": "Classes",
+      "item": [
+        {
+          "name": "Get Class Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/categories/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "categories", ""]
+            }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "http://localhost:8000/api/users/token/refresh/",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "8000",
-          "path": ["api", "users", "token", "refresh", ""]
+        {
+          "name": "Get Class Category Detail",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/categories/1/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "categories", "1", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Classes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Class Detail",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/1/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "1", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search Classes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/search/?category=1&time_of_day=morning&featured_only=true&min_rating=4.0&max_capacity=20&search=yoga",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "search", ""],
+              "query": [
+                { "key": "category", "value": "1" },
+                { "key": "time_of_day", "value": "morning" },
+                { "key": "featured_only", "value": "true" },
+                { "key": "min_rating", "value": "4.0" },
+                { "key": "max_capacity", "value": "20" },
+                { "key": "search", "value": "yoga" }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Class Calendar",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/calendar/?start_date=2024-01-01&end_date=2024-12-31",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "calendar", ""],
+              "query": [
+                { "key": "start_date", "value": "2024-01-01" },
+                { "key": "end_date", "value": "2024-12-31" }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Instructor Classes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/instructor/1/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "instructor", "1", ""]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
+    },
+    {
+      "name": "Bookings",
+      "item": [
+        {
+          "name": "Get My Bookings",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/bookings/my-bookings/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "bookings", "my-bookings", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get My Booking Detail",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/bookings/my-bookings/1/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "bookings", "my-bookings", "1", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Booking",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"class_schedule\": 1,\n  \"notes\": \"Looking forward to this class!\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/bookings/create/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "bookings", "create", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Booking",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"notes\": \"Updated notes for the class\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/bookings/my-bookings/1/update/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "bookings", "my-bookings", "1", "update", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cancel Booking",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/bookings/my-bookings/1/cancel/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "bookings", "my-bookings", "1", "cancel", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Class Schedule Booking Info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/bookings/schedule/1/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "bookings", "schedule", "1", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Class Review",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"class_id\": 1,\n  \"rating\": 5,\n  \"comment\": \"Amazing class! The instructor was fantastic and the workout was challenging but fun.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/bookings/reviews/create/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "bookings", "reviews", "create", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get My Reviews",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/bookings/reviews/my-reviews/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "bookings", "reviews", "my-reviews", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Class Reviews",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/bookings/reviews/class/1/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "bookings", "reviews", "class", "1", ""]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Admin Dashboard",
+      "item": [
+        {
+          "name": "Get All Classes (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/admin/classes/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "admin", "classes", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Class Detail (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/admin/classes/1/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "admin", "classes", "1", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Class (Admin)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Yoga Class\",\n  \"description\": \"Updated description\",\n  \"category\": 1,\n  \"instructor\": 1,\n  \"duration\": 60,\n  \"max_capacity\": 25,\n  \"price\": 15.00,\n  \"is_featured\": true,\n  \"difficulty_level\": \"intermediate\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/admin/classes/1/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "admin", "classes", "1", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Class (Admin)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/admin/classes/1/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "admin", "classes", "1", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Categories (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/admin/categories/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "admin", "categories", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Category (Admin)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Pilates\",\n  \"description\": \"Core strengthening and flexibility training\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/admin/categories/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "admin", "categories", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Category (Admin)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Pilates\",\n  \"description\": \"Updated description for Pilates\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/admin/categories/1/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "admin", "categories", "1", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Category (Admin)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/admin/categories/1/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "admin", "categories", "1", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Analytics (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/admin/analytics/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "admin", "analytics", ""]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Instructor Dashboard",
+      "item": [
+        {
+          "name": "Get Instructor Dashboard",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/instructor/dashboard/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "instructor", "dashboard", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Instructor Schedules",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/instructor/schedules/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "instructor", "schedules", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Instructor Performance",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{access_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/classes/instructor/performance/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "classes", "instructor", "performance", ""]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ]
 } 

@@ -13,3 +13,6 @@ alwaysApply: true
 - Follow PEP 8 standards for writing Python code
 - Write comments where required
 - Add all important logs
+- Always use type hinting for function parameters and it's return type
+- Make sure to add logs in the logic for better tracking
+- Make sure every piece of code that is written should be production ready

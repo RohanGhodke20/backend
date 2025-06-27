@@ -1,0 +1,14 @@
+---
+description: This rule is to be used while writing the APIs or business logic
+globs: 
+alwaysApply: false
+---
+---
+description: This rule is to be used while writing the APIs or business logic
+globs: 
+alwaysApply: true
+---
+
+- Always refer the decorators.py file inside the core folder which should be included for every API
+- Make sure to use the custom exceptions mentioned in the exceptions.py file inside the core folder
+- If a new exception arises for a standard HTTP error code which does not exists, add in the exceptions.py file, unless mentioned explicitly

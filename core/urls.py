@@ -47,6 +47,8 @@ urlpatterns = [
     path('api/v1/', include([
         path('', api_root, name='api-root'),
         path('users/', include('users.urls')),
+        path('classes/', include('classes.urls')),
+        path('bookings/', include('bookings.urls')),
         # Add other app URLs here as they are created
     ])),
 ]
